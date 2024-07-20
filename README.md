@@ -1,5 +1,7 @@
 # 🚀 Graph Plotting Application
 
+Here's the Deployed Link : https://qutrix-assignment-rose.vercel.app/
+
 ## 📌 Overview
 This is a Graph Plotting application made using ReactJS where users can input data and visualize it in a graph format.
 
