@@ -11,18 +11,20 @@ const GraphPlot = ({ data }) => {
     labels: allXValues,
     datasets: data.map((dataset, index) => {
       const yValues = allXValues.map(xValue => {
-        const index = dataset.xAxis.indexOf(xValue);
-        return index !== -1 ? dataset.yAxis[index] : null;
+        const idx = dataset.xAxis.indexOf(xValue);
+        return idx !== -1 ? dataset.yAxis[idx] : null;
       });
+
+      const color = `rgba(${75 + index * 40}, ${192 - index * 40}, 192, 1)`;
 
       return {
         label: dataset.label || `Dataset ${index + 1}`,
         data: yValues,
         fill: false,
-        backgroundColor: `rgba(${75 + index * 40}, ${192 - index * 40}, 192, 0.4)`,
-        borderColor: `rgba(${75 + index * 40}, ${192 - index * 40}, 192, 1)`,
-        pointBackgroundColor: `rgba(${255 - index * 40}, 99, 132, 1)`,
-        pointBorderColor: `rgba(${255 - index * 40}, 99, 132, 1)`,
+        backgroundColor: color,
+        borderColor: color,
+        pointBackgroundColor: color,
+        pointBorderColor: color,
         pointRadius: 5,
         pointHoverRadius: 7,
       };
@@ -58,8 +60,6 @@ const GraphPlot = ({ data }) => {
     },
     maintainAspectRatio: false, 
   };
-  
-  
 
   return <Line data={chartData} options={options} />;
 };
